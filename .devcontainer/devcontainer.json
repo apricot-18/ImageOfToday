@@ -1,0 +1,16 @@
+{
+  "name": "Web App Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "ms-vscode.live-server"
+      ],
+      "settings": {
+        "liveServer.settings.port": 3000
+      }
+    }
+  }
+}
