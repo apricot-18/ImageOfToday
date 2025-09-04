@@ -7,20 +7,22 @@
 //    例: https://drive.google.com/file/d/ファイルID/view?usp=drive_link
 // 6. 抽出したファイルIDを以下の配列に追加します。
 
-const imageIds = [
-  // ここにGoogle Driveの画像ファイルIDを追加してください
-  // 例: '1aBcDeFgHiJkLmNoPqRsTuVwXyZ'
-  '1JAOGkVfD3DCpfTXJF4J7aVEeDdsIr6KM'
+// ここに表示したいウェブ上の画像URLを追加してください
+// 例：'https://example.com/images/photo.jpg'
+const imageUrls = [
+  'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1517409549320-b384666f7af7?w=600&auto=format&fit=crop'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const imageGallery = document.getElementById('image-gallery');
 
-  if (imageIds.length === 0) {
+  if (imageUrls.length === 0) {
     imageGallery.innerHTML = `
       <div class="w-full text-center p-8 text-gray-500">
         表示する画像がありません。<br>
-        'script.js'ファイルにGoogle DriveのファイルIDを追加してください。
+        'script.js'ファイルに画像URLを追加してください。
       </div>
     `;
     return;
@@ -28,13 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   imageGallery.innerHTML = ''; // ローディング表示をクリア
 
-  imageIds.forEach(id => {
-    // Google Driveの画像を直接表示するためのURL
-    const imageUrl = `https://drive.google.com/uc?export=view&id=${id}`;
-
+  imageUrls.forEach(url => {
     const imgElement = document.createElement('img');
-    imgElement.src = imageUrl;
-    imgElement.alt = 'Google Drive Image';
+    imgElement.src = url;
+    imgElement.alt = 'ウェブ画像';
     imgElement.className = 'w-full h-full object-cover rounded-lg shadow-md';
 
     const divElement = document.createElement('div');
